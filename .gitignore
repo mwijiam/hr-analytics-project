@@ -1,10 +1,7 @@
-# Data files (don't upload Kaggle datasets)
+# Data files
 data/raw/*.csv
 data/cleaned/*.csv
 *.xlsx
-
-# Power BI files (too large for GitHub)
-powerbi/*.pbix
 
 # OS files
 .DS_Store
