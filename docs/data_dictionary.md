@@ -1,341 +1,124 @@
 # Data Dictionary - IBM HR Analytics Dataset
 
-Penjelasan lengkap setiap kolom dalam dataset.
+This dataset has 1,470 rows and 35 columns. Below is a breakdown of what each column means, what values it holds, and whether HR can actually do something about it.
 
 ---
 
-## 📋 Identifiers
+## Identifiers
 
-### EmployeeNumber
-- **Tipe:** Integer
-- **Deskripsi:** Unique ID untuk setiap karyawan
-- **Contoh:** 1, 2, 3, ..., 1470
-- **Kegunaan:** Identifier, primary key
-- **Bisa Diubah?** ❌ No
+| Column | Type | Description |
+|--------|------|-------------|
+| EmployeeNumber | Integer | Unique ID per employee (1-1470) |
 
 ---
 
-## 👤 Demographics (Data Pribadi)
+## Demographics
 
-### Age
-- **Tipe:** Integer
-- **Deskripsi:** Umur karyawan dalam tahun
-- **Range:** 18 - 60
-- **Contoh:** 25, 35, 45
-- **Kegunaan:** Segmentasi berdasarkan generasi
-- **Bisa Diubah?** ❌ No (tapi bisa segment strategy per age group)
-
-### Gender
-- **Tipe:** Categorical
-- **Values:** Male, Female
-- **Kegunaan:** Diversity analysis, cek bias
-- **Bisa Diubah?** ❌ No
-
-### MaritalStatus
-- **Tipe:** Categorical
-- **Values:** Single, Married, Divorced
-- **Kegunaan:** Stability indicator (married = lebih stable)
-- **Bisa Diubah?** ❌ No
-
-### DistanceFromHome
-- **Tipe:** Integer
-- **Deskripsi:** Jarak rumah ke kantor (dalam km)
-- **Range:** 1 - 29
-- **Kegunaan:** Commute burden analysis
-- **Bisa Diubah?** ⚠️ Partial (bisa kasih remote work option)
+| Column | Type | Values / Range | Notes |
+|--------|------|---------------|-------|
+| Age | Integer | 18 - 60 | Useful for generational segmentation |
+| Gender | Categorical | Male, Female | Check for bias in attrition |
+| MaritalStatus | Categorical | Single, Married, Divorced | Single = higher attrition |
+| DistanceFromHome | Integer | 1 - 29 (km) | Long commute may push people out |
 
 ---
 
-## 🎓 Education
+## Education
 
-### Education
-- **Tipe:** Integer (ordinal scale)
-- **Values:** 
-  - 1 = Below College
-  - 2 = College
-  - 3 = Bachelor
-  - 4 = Master
-  - 5 = Doctor
-- **Kegunaan:** Skill level, career expectation
-- **Bisa Diubah?** ❌ No (tapi bisa support further education)
-
-### EducationField
-- **Tipe:** Categorical
-- **Values:** Life Sciences, Medical, Marketing, Technical Degree, Other, Human Resources
-- **Kegunaan:** Match education dengan job role
-- **Bisa Diubah?** ❌ No
+| Column | Type | Values | Notes |
+|--------|------|--------|-------|
+| Education | Integer | 1=Below College, 2=College, 3=Bachelor, 4=Master, 5=Doctor | Ordinal scale |
+| EducationField | Categorical | Life Sciences, Medical, Marketing, Technical Degree, Other, HR | Background field |
 
 ---
 
-## 💼 Job Information
+## Job Information
 
-### Department
-- **Tipe:** Categorical
-- **Values:** Sales, Research & Development, Human Resources
-- **Kegunaan:** Compare attrition across departments
-- **Bisa Diubah?** ✅ Yes (transfer department)
-
-### JobRole
-- **Tipe:** Categorical
-- **Values:** Sales Executive, Research Scientist, Laboratory Technician, Manufacturing Director, Healthcare Representative, Manager, Sales Representative, Research Director, Human Resources
-- **Kegunaan:** Granular analysis per role
-- **Bisa Diubah?** ✅ Yes (promotion/transfer)
-
-### JobLevel
-- **Tipe:** Integer (ordinal)
-- **Values:** 1 - 5 (1 = entry level, 5 = executive)
-- **Kegunaan:** Career progression analysis
-- **Bisa Diubah?** ✅ Yes (promotion)
-
-### YearsAtCompany
-- **Tipe:** Integer
-- **Deskripsi:** Berapa tahun kerja di company ini
-- **Range:** 0 - 40
-- **Kegunaan:** Tenure analysis, loyalty indicator
-- **Bisa Diubah?** ❌ No (time-based)
-
-### YearsInCurrentRole
-- **Tipe:** Integer
-- **Deskripsi:** Berapa tahun di posisi/role sekarang
-- **Range:** 0 - 18
-- **Kegunaan:** Stagnation indicator
-- **Bisa Diubah?** ✅ Yes (role change/promotion)
-
-### YearsSinceLastPromotion
-- **Tipe:** Integer
-- **Deskripsi:** Berapa tahun sejak promosi terakhir
-- **Range:** 0 - 15
-- **Kegunaan:** Career growth indicator (>5 years = red flag)
-- **Bisa Diubah?** ✅ Yes (kasih promosi!)
-
-### YearsWithCurrManager
-- **Tipe:** Integer
-- **Deskripsi:** Berapa tahun dengan manager sekarang
-- **Range:** 0 - 17
-- **Kegunaan:** Manager relationship analysis
-- **Bisa Diubah?** ✅ Yes (change manager)
-
-### TotalWorkingYears
-- **Tipe:** Integer
-- **Deskripsi:** Total pengalaman kerja (semua company)
-- **Range:** 0 - 40
-- **Kegunaan:** Experience level
-- **Bisa Diubah?** ❌ No (historical data)
-
-### NumCompaniesWorked
-- **Tipe:** Integer
-- **Deskripsi:** Jumlah company yang pernah dikerjai sebelumnya
-- **Range:** 0 - 9
-- **Kegunaan:** Job hopping indicator (>5 = sering pindah)
-- **Bisa Diubah?** ❌ No (historical data)
+| Column | Type | Values / Range | Notes |
+|--------|------|---------------|-------|
+| Department | Categorical | Sales, R&D, HR | 3 departments |
+| JobRole | Categorical | 9 roles (Sales Exec, Research Scientist, Lab Tech, etc.) | More granular than Department |
+| JobLevel | Integer | 1-5 | 1 = entry, 5 = executive |
+| YearsAtCompany | Integer | 0-40 | Tenure with this company |
+| YearsInCurrentRole | Integer | 0-18 | How long in current position |
+| YearsSinceLastPromotion | Integer | 0-15 | >5 years = potential stagnation |
+| YearsWithCurrManager | Integer | 0-17 | Manager relationship duration |
+| TotalWorkingYears | Integer | 0-40 | Overall career experience |
+| NumCompaniesWorked | Integer | 0-9 | >5 = job hopper pattern |
 
 ---
 
-## 💰 Compensation
+## Compensation
 
-### MonthlyIncome
-- **Tipe:** Integer
-- **Deskripsi:** Gaji bulanan (dalam dollar)
-- **Range:** $1,009 - $19,999
-- **Kegunaan:** Main compensation metric
-- **Bisa Diubah?** ✅ Yes (salary adjustment)
-
-### MonthlyRate
-- **Tipe:** Integer
-- **Deskripsi:** Rate bulanan (unclear, mungkin billing rate)
-- **Range:** $2,094 - $26,999
-- **Kegunaan:** ⚠️ Kurang jelas, jarang dipake
-- **Bisa Diubah?** ✅ Yes
-
-### DailyRate
-- **Tipe:** Integer
-- **Deskripsi:** Rate harian
-- **Range:** $102 - $1,499
-- **Kegunaan:** ⚠️ Kurang jelas, jarang dipake
-- **Bisa Diubah?** ✅ Yes
-
-### HourlyRate
-- **Tipe:** Integer
-- **Deskripsi:** Rate per jam
-- **Range:** $30 - $100
-- **Kegunaan:** ⚠️ Kurang jelas, jarang dipake
-- **Bisa Diubah?** ✅ Yes
-
-### PercentSalaryHike
-- **Tipe:** Integer
-- **Deskripsi:** Persentase kenaikan gaji terakhir
-- **Range:** 11% - 25%
-- **Kegunaan:** Reward/recognition indicator
-- **Bisa Diubah?** ✅ Yes (next salary review)
-
-### StockOptionLevel
-- **Tipe:** Integer
-- **Values:** 0 - 3 (0 = no stock, 3 = highest)
-- **Kegunaan:** Additional compensation, retention tool
-- **Bisa Diubah?** ✅ Yes (grant stock options)
+| Column | Type | Range | Notes |
+|--------|------|-------|-------|
+| MonthlyIncome | Integer | $1,009 - $19,999 | Main salary metric |
+| PercentSalaryHike | Integer | 11% - 25% | Last raise percentage |
+| StockOptionLevel | Integer | 0-3 | 0 = none, 3 = highest |
+| DailyRate | Integer | $102 - $1,499 | Unclear definition, not very useful |
+| MonthlyRate | Integer | $2,094 - $26,999 | Unclear definition, not very useful |
+| HourlyRate | Integer | $30 - $100 | Unclear definition, not very useful |
 
 ---
 
-## 😊 Satisfaction & Engagement
+## Satisfaction & Engagement
 
-### JobSatisfaction
-- **Tipe:** Integer (Likert scale)
-- **Values:** 1 - 4
-  - 1 = Low
-  - 2 = Medium
-  - 3 = High
-  - 4 = Very High
-- **Kegunaan:** Direct attrition predictor
-- **Bisa Diubah?** ✅ Yes (improve job conditions)
+All rated 1-4 (1 = lowest, 4 = highest).
 
-### EnvironmentSatisfaction
-- **Tipe:** Integer (Likert scale)
-- **Values:** 1 - 4 (same as above)
-- **Kegunaan:** Workplace quality indicator
-- **Bisa Diubah?** ✅ Yes (improve office, culture, etc)
-
-### RelationshipSatisfaction
-- **Tipe:** Integer (Likert scale)
-- **Values:** 1 - 4
-- **Kegunaan:** Team/manager relationship quality
-- **Bisa Diubah?** ✅ Yes (team building, manager training)
-
-### WorkLifeBalance
-- **Tipe:** Integer (Likert scale)
-- **Values:** 1 - 4
-  - 1 = Bad
-  - 2 = Good
-  - 3 = Better
-  - 4 = Best
-- **Kegunaan:** Burnout indicator
-- **Bisa Diubah?** ✅ Yes (flexible hours, reduce overtime)
-
-### JobInvolvement
-- **Tipe:** Integer (Likert scale)
-- **Values:** 1 - 4
-- **Kegunaan:** Engagement level
-- **Bisa Diubah?** ✅ Yes (give meaningful work)
+| Column | What It Measures | Actionable? |
+|--------|-----------------|-------------|
+| JobSatisfaction | How happy with the job itself | Yes, improve role and responsibilities |
+| EnvironmentSatisfaction | Workplace quality (office, culture) | Yes, upgrade facilities, fix culture |
+| RelationshipSatisfaction | Team and manager relationships | Yes, team building, manager coaching |
+| WorkLifeBalance | 1=Bad, 2=Good, 3=Better, 4=Best | Yes, flexible hours, reduce overtime |
+| JobInvolvement | How engaged with work | Yes, give meaningful projects |
 
 ---
 
-## ⚙️ Work Conditions
+## Work Conditions
 
-### OverTime
-- **Tipe:** Categorical
-- **Values:** Yes, No
-- **Kegunaan:** Burnout indicator (overtime = high attrition)
-- **Bisa Diubah?** ✅ Yes (reduce overtime, hire more)
-
-### BusinessTravel
-- **Tipe:** Categorical
-- **Values:** 
-  - Non-Travel
-  - Travel_Rarely
-  - Travel_Frequently
-- **Kegunaan:** Work-life balance factor
-- **Bisa Diubah?** ✅ Yes (reduce travel requirement)
-
-### StandardHours
-- **Tipe:** Integer
-- **Deskripsi:** Jam kerja standard (semua isinya 80)
-- **Kegunaan:** ❌ Ga berguna (constant value)
-- **Bisa Diubah?** N/A
+| Column | Type | Values | Notes |
+|--------|------|--------|-------|
+| OverTime | Categorical | Yes, No | Overtime employees resign at 3x the rate |
+| BusinessTravel | Categorical | Non-Travel, Travel_Rarely, Travel_Frequently | Frequent travelers leave more |
 
 ---
 
-## 📈 Performance & Development
+## Performance
 
-### PerformanceRating
-- **Tipe:** Integer
-- **Values:** 3 - 4
-  - 3 = Excellent
-  - 4 = Outstanding
-- **Kegunaan:** ⚠️ Limited (cuma 2 values)
-- **Bisa Diubah?** ✅ Yes (performance management)
-
-### TrainingTimesLastYear
-- **Tipe:** Integer
-- **Deskripsi:** Jumlah training yang diikuti tahun lalu
-- **Range:** 0 - 6
-- **Kegunaan:** Development investment indicator
-- **Bisa Diubah?** ✅ Yes (provide more training)
+| Column | Type | Values | Notes |
+|--------|------|--------|-------|
+| PerformanceRating | Integer | 3-4 only | Limited, everyone is "Excellent" or "Outstanding" |
+| TrainingTimesLastYear | Integer | 0-6 | Number of trainings attended |
 
 ---
 
-## 🎯 Target Variable
+## Target Variable
 
-### Attrition
-- **Tipe:** Categorical
-- **Values:** Yes, No
-- **Deskripsi:** Apakah karyawan resign?
-- **Kegunaan:** **TARGET** - ini yang mau diprediksi/dianalisis
-- **Bisa Diubah?** ✅ Yes (retention strategy!)
+| Column | Type | Values | Description |
+|--------|------|--------|-------------|
+| Attrition | Categorical | Yes, No | Whether the employee resigned. This is what we're analyzing |
 
 ---
 
-## 🗑️ Useless Columns (Bisa Diabaikan)
+## Columns to Skip
 
-### EmployeeCount
-- **Values:** Semua isinya 1
-- **Kegunaan:** ❌ Ga ada (constant)
+These columns have the same value for every row, so they're useless:
 
-### Over18
-- **Values:** Semua isinya "Y"
-- **Kegunaan:** ❌ Ga ada (constant)
-
-### StandardHours
-- **Values:** Semua isinya 80
-- **Kegunaan:** ❌ Ga ada (constant)
+| Column | Value | Why Skip |
+|--------|-------|----------|
+| EmployeeCount | Always 1 | Constant |
+| Over18 | Always "Y" | Constant |
+| StandardHours | Always 80 | Constant |
 
 ---
 
-## 📊 Grouping by Importance
+## Priority for Analysis
 
-### 🔥 Critical (Must Analyze)
-- Attrition (target)
-- MonthlyIncome
-- JobSatisfaction
-- OverTime
-- YearsAtCompany
-- YearsSinceLastPromotion
-- Department
-- JobRole
+**Must analyze:** Attrition, MonthlyIncome, JobSatisfaction, OverTime, YearsAtCompany, YearsSinceLastPromotion, Department, JobRole
 
-### ⚠️ Important (Should Analyze)
-- Age
-- WorkLifeBalance
-- EnvironmentSatisfaction
-- JobLevel
-- MaritalStatus
-- BusinessTravel
-- StockOptionLevel
+**Worth checking:** Age, WorkLifeBalance, EnvironmentSatisfaction, JobLevel, MaritalStatus, BusinessTravel, StockOptionLevel
 
-### 💡 Nice to Have
-- Gender
-- Education
-- DistanceFromHome
-- NumCompaniesWorked
-- TrainingTimesLastYear
-- PerformanceRating
+**Low priority:** Gender, Education, DistanceFromHome, NumCompaniesWorked, TrainingTimesLastYear
 
-### ❌ Skip
-- EmployeeCount
-- Over18
-- StandardHours
-- DailyRate (unclear)
-- MonthlyRate (unclear)
-- HourlyRate (unclear)
-
----
-
-## 🎓 Tips Baca Dataset Baru
-
-1. **Cek constant columns** → skip
-2. **Identify target variable** → Attrition
-3. **Group by category** → demographics, job, compensation, satisfaction
-4. **Prioritize actionable** → bisa diubah = valuable
-5. **Understand relationships** → YearsAtCompany vs YearsInCurrentRole
-
----
-
-*Sekarang kamu udah paham setiap kolom. Bisa mulai bikin analysis strategy!*
+**Skip:** EmployeeCount, Over18, StandardHours, DailyRate, MonthlyRate, HourlyRate

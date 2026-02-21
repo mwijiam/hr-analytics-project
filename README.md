@@ -1,50 +1,48 @@
 # HR Analytics - Employee Attrition Analysis
 
-## 📋 Project Overview
-Analisis faktor-faktor yang mempengaruhi employee attrition (resign) menggunakan dataset IBM HR Analytics.
+## Project Overview
+This project analyzes employee attrition patterns using the IBM HR Analytics dataset (1,470 employees). The goal is to identify which employees are most likely to resign and what factors drive that decision, then translate those findings into a Power BI dashboard that HR teams can actually use.
 
-## 🎯 Business Questions
-1. Berapa attrition rate keseluruhan perusahaan?
-2. Department mana yang punya turnover paling tinggi?
-3. Apakah ada korelasi antara satisfaction level dengan resign?
-4. Faktor apa yang paling mempengaruhi keputusan resign?
-5. Segmentasi karyawan berdasarkan risk level
+## Business Questions
+1. What is the overall attrition rate, and how does it compare to industry benchmarks?
+2. Which departments and job roles have the highest turnover?
+3. Is there a relationship between job satisfaction, overtime, and resignation?
+4. What combination of factors puts an employee at highest risk of leaving?
+5. Can we build a simple risk score to flag at-risk employees before they resign?
 
-## 🛠️ Tools Used
-- **SQL** - Data cleaning & analysis queries
-- **Excel** - Exploratory data analysis
-- **Power BI** - Interactive dashboard
+## Key Findings
+- **Attrition rate: 16.12%**, above the 10-15% industry average
+- **Sales Representatives** have the highest attrition at 39.76%, nearly 4 in 10 leave
+- Employees who work **overtime** are 3x more likely to resign (30.5% vs 10.4%)
+- Those who left earned **$2,045 less per month** on average than those who stayed
+- **New hires (0-1 years)** have a 34.88% attrition rate, pointing to an onboarding gap
+- **Single employees** and those with **poor work-life balance** are significantly more likely to leave
 
-## 📁 Project Structure
+## Tools Used
+- **PostgreSQL** for data cleaning, exploration, and analysis
+- **Power BI** for the interactive 4-page dashboard with DAX measures
+
+## Project Structure
 ```
 hr-analytics-project/
-├── data/
-│   ├── raw/           → Original dataset
-│   └── cleaned/       → Cleaned dataset
 ├── sql/
-│   ├── 01_create_table.sql
-│   ├── 02_data_exploration.sql
-│   └── 03_analysis.sql
-├── excel/
-│   └── exploratory_analysis.xlsx
+│   ├── 01_create_table.sql      # Table schema for the dataset
+│   ├── 02_data_exploration.sql   # Data quality checks and profiling
+│   └── 03_analysis.sql          # Full analysis (7 sections, 15+ queries)
+├── docs/
+│   ├── data_dictionary.md       # Column descriptions and data types
+│   ├── query_explanation.md     # SQL breakdown with business context
+│   └── key_insights.md          # Summary of findings and recommendations
 ├── powerbi/
-│   └── hr_dashboard.pbix
-└── docs/
-    └── screenshots/
+│   └── hr_dashboard.pbix        # Interactive dashboard (4 pages)
+└── screenshots/                 # Dashboard screenshots
 ```
 
-## 📊 Key Metrics
-- Attrition Rate
-- Average Tenure
-- Satisfaction Score by Department
-- Salary vs Attrition correlation
-- Age distribution of leavers
+## Dashboard Preview
+*Screenshots will be added after the dashboard is finalized.*
 
-## 📈 Dashboard Preview
-*Screenshot will be added after completion*
-
-## 🔗 Dataset Source
-[IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
+## Dataset
+[IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) (1,470 rows, 35 columns)
 
 ---
-*Project by: [Your Name]*
+*Project by: mwijiam*
