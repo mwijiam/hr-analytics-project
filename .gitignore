@@ -1,0 +1,16 @@
+# Data files (don't upload Kaggle datasets)
+data/raw/*.csv
+data/cleaned/*.csv
+*.xlsx
+
+# Power BI files (too large for GitHub)
+powerbi/*.pbix
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
