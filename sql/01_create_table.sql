@@ -1,10 +1,4 @@
--- ============================================
--- HR Analytics - Create Table
--- ============================================
-
--- Create the main employees table
 CREATE TABLE employees (
-    EmployeeNumber INT PRIMARY KEY,
     Age INT,
     Attrition VARCHAR(10),
     BusinessTravel VARCHAR(50),
@@ -14,6 +8,7 @@ CREATE TABLE employees (
     Education INT,
     EducationField VARCHAR(50),
     EmployeeCount INT,
+    EmployeeNumber INT PRIMARY KEY,
     EnvironmentSatisfaction INT,
     Gender VARCHAR(10),
     HourlyRate INT,
@@ -40,8 +35,3 @@ CREATE TABLE employees (
     YearsSinceLastPromotion INT,
     YearsWithCurrManager INT
 );
-
--- Note: After creating table, import data from CSV
--- In MySQL: LOAD DATA INFILE 'path/to/file.csv' INTO TABLE employees
--- In PostgreSQL: COPY employees FROM 'path/to/file.csv' CSV HEADER
--- In SQL Server: Use Import Wizard or BULK INSERT
