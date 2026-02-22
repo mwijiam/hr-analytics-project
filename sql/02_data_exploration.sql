@@ -1,6 +1,3 @@
--- ============================================
--- HR Analytics - Data Exploration
--- ============================================
 -- 1. Check total records
 SELECT
 	COUNT(*) AS total_employees
