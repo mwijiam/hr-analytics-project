@@ -34,12 +34,23 @@ hr-analytics-project/
 │   ├── query_explanation.md     # SQL breakdown with business context
 │   └── key_insights.md          # Summary of findings and recommendations
 ├── powerbi/
-│   └── hr_dashboard.pbix        # Interactive dashboard (4 pages)
+│   └── hr_analytics_dashboard.pbix  # Interactive dashboard (4 pages)
 └── screenshots/                 # Dashboard screenshots
 ```
 
 ## Dashboard Preview
-*Screenshots will be added after the dashboard is finalized.*
+
+### Page 1: Executive Summary
+![Executive Summary](screenshots/page1_executive_summary.png)
+
+### Page 2: Attrition Deep Dive
+![Attrition Deep Dive](screenshots/page2_deep_dive.png)
+
+### Page 3: Root Cause Analysis
+![Root Cause Analysis](screenshots/page3_root_cause.png)
+
+### Page 4: Risk & Action
+![Risk & Action](screenshots/page4_risk_action.png)
 
 ## Dataset
 [IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) (1,470 rows, 35 columns)
