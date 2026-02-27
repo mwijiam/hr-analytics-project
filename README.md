@@ -35,6 +35,8 @@ hr-analytics-project/
 │   └── key_insights.md          # Summary of findings and recommendations
 ├── powerbi/
 │   └── hr_analytics_dashboard.pbix  # Interactive dashboard (4 pages)
+├── excel/
+│   └── hr_data_original.xlsx    # Original dataset
 └── screenshots/                 # Dashboard screenshots
 ```
 

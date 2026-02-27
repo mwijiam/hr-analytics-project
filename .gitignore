@@ -1,7 +1,7 @@
 # Data files
 data/raw/*.csv
 data/cleaned/*.csv
-*.xlsx
+
 
 # OS files
 .DS_Store
