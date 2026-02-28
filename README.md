@@ -30,8 +30,6 @@ hr-analytics-project/
 │   ├── 02_data_exploration.sql   # Data quality checks and profiling
 │   └── 03_analysis.sql          # Full analysis (7 sections, 15+ queries)
 ├── docs/
-│   ├── data_dictionary.md       # Column descriptions and data types
-│   ├── query_explanation.md     # SQL breakdown with business context
 │   └── key_insights.md          # Summary of findings and recommendations
 ├── powerbi/
 │   └── hr_analytics_dashboard.pbix  # Interactive dashboard (4 pages)
