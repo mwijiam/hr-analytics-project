@@ -19,6 +19,7 @@ This project analyzes employee attrition patterns using the IBM HR Analytics dat
 - **Single employees** and those with **poor work-life balance** are significantly more likely to leave
 
 ## Tools Used
+- **Excel** for initial data inspection and validation
 - **PostgreSQL** for data cleaning, exploration, and analysis
 - **Power BI** for the interactive 4-page dashboard with DAX measures
 
